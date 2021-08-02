@@ -21,6 +21,18 @@ public class frm_vehiculo extends javax.swing.JFrame {
     Tipo tipo;
     public frm_vehiculo() {
         initComponents();
+        cmb_tipo.addItem("Motocicleta");
+        cmb_tipo.addItem("Carro");
+        cmb_tipo.addItem("Bus");
+        cmb_tipo.addItem("Camioneta");
+        cmb_tipo.addItem("Tractor");
+        cmb_tipo.addItem("Pick-up");
+        cmb_tipo.addItem("Taxi");
+        cmb_tipo.addItem("Avion");
+        cmb_tipo.addItem("Helicoptero");
+        cmb_tipo.addItem("Barco");
+        
+        
         frm_propietario datos = new frm_propietario();
         datos.setVisible(true);
     }
@@ -56,11 +68,11 @@ public class frm_vehiculo extends javax.swing.JFrame {
         lbl_tarjeta = new javax.swing.JLabel();
         txt_tarjeta = new javax.swing.JTextField();
         lbl_tipo = new javax.swing.JLabel();
-        txt_tipo = new javax.swing.JTextField();
         lbl_uso = new javax.swing.JLabel();
         txt_uso = new javax.swing.JTextField();
         btn_propietario = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        cmb_tipo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Datos del Vehiculo");
@@ -104,12 +116,24 @@ public class frm_vehiculo extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Por favor, llene primero este registro");
+        jLabel4.setText("Por favor, llene primero este registro, el registro del propietario aparecera atras de este");
+
+        cmb_tipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_tipoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(btn_agregar)
+                .addGap(18, 18, 18)
+                .addComponent(btn_propietario)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -130,7 +154,7 @@ public class frm_vehiculo extends javax.swing.JFrame {
                         .addComponent(txt_modelo, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txt_marca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txt_motor, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,28 +170,21 @@ public class frm_vehiculo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_uso, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_tarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_asientos, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_linea, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_linea, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(btn_agregar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_propietario))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(jLabel4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -195,8 +212,8 @@ public class frm_vehiculo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txt_asientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_tarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_tarjeta))))
@@ -228,9 +245,11 @@ public class frm_vehiculo extends javax.swing.JFrame {
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
         // TODO add your handling code here:
         tarjeta=new Tarjeta(txt_tarjeta.getText(),txt_uso.getText());
-        tipo= new Tipo(txt_tipo.getText());
+        
+        tipo= new Tipo(cmb_tipo.getSelectedItem().toString());
         vehiculo =new Vehiculo(txt_placa.getText(),txt_chasis.getText(), txt_serie.getText(), txt_motor.getText(), txt_cilindros.getText(), txt_marca.getText(), txt_modelo.getText(), txt_linea.getText(), txt_asientos.getText(),tarjeta, tipo);
         vehiculo.agregar();
+        vehiculo.operation(cmb_tipo.getSelectedItem().toString());
         
         frm_propietario.txt_tarjeta1.setText(txt_tarjeta.getText());
         frm_propietario.txt_uso1.setText(txt_uso.getText());
@@ -240,6 +259,10 @@ public class frm_vehiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btn_propietarioActionPerformed
+
+    private void cmb_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_tipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_tipoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,6 +302,7 @@ public class frm_vehiculo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_propietario;
+    private javax.swing.JComboBox<String> cmb_tipo;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lbl_asientos;
     private javax.swing.JLabel lbl_chasis;
@@ -302,7 +326,6 @@ public class frm_vehiculo extends javax.swing.JFrame {
     private javax.swing.JTextField txt_placa;
     private javax.swing.JTextField txt_serie;
     public static javax.swing.JTextField txt_tarjeta;
-    private javax.swing.JTextField txt_tipo;
     public static javax.swing.JTextField txt_uso;
     // End of variables declaration//GEN-END:variables
 }

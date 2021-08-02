@@ -35,6 +35,14 @@ public class Tarjeta {
         this.uso = uso;
     }
     
-    public void agregar(){}
-    public void mostrar(){}
+    public void agregar()
+    {
+        System.out.println(no_tarjeta);
+        System.out.println(uso);
+    }
+    public void mostrar()
+    {
+        System.out.println(no_tarjeta);
+        System.out.println(uso);
+    }
 }

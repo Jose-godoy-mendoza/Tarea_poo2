@@ -26,6 +26,12 @@ public class Tipo {
         this.tipo = tipo;
     }
     
-    public void agregar(){}
-    public void mostrar(){}
+    public void agregar()
+    {
+    System.out.println(tipo);
+    }
+    public void mostrar()
+    {
+        System.out.println(tipo);
+    }
 }
